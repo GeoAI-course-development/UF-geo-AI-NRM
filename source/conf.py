@@ -53,12 +53,12 @@ extensions = [
 # Thebe configuration for ReadTheDocs
 thebe_config = {
     "binderOptions": {
-        "repo": "geo-python/UF-geo-AI-NRM",
+        "repo": "GeoAI-course-development/UF-geo-AI-NRM",
         "binderUrl": "https://mybinder.org",
         "ref": "dev",
     },
     "selector": ".thebe-code",
-    "repository": "geo-python/UF-geo-AI-NRM",
+    "repository": "GeoAI-course-development/UF-geo-AI-NRM",
     "branch": "dev",
 }
 
@@ -121,7 +121,7 @@ html_title = ""
 
 html_theme_options = {
     # "external_links": [],
-    "repository_url": "https://github.com/geo-python/UF-geo-AI-NRM/",
+    "repository_url": "https://github.com/GeoAI-course-development/UF-geo-AI-NRM/",
     "repository_branch": "dev",
     "path_to_docs": "source/",
     # "twitter_url": "https://twitter.com/pythongis",
@@ -130,7 +130,7 @@ html_theme_options = {
     "use_repository_button": True,
     "launch_buttons": {
         "binderhub_url": "https://mybinder.org",
-        "binder_repo": "geo-python/UF-geo-AI-NRM",
+        "binder_repo": "GeoAI-course-development/UF-geo-AI-NRM",
         "thebe": True,
         "notebook_interface": "jupyterlab",
         "collapse_navigation": False,
@@ -166,7 +166,7 @@ html_context = {
     "display_github": True,
     # Set the following variables to generate the resulting github URL for each page.
     # Format Template: https://{{ github_host|default("github.com") }}/{{ github_user }}/{{ github_repo }}/blob/{{ github_version }}{{ conf_py_path }}{{ pagename }}{{ suffix }}
-    "github_user": "geo-python",
+    "github_user": "GeoAI-course-development",
     "github_repo": "UF-geo-AI-NRM",
     "github_version": "dev/",
     "conf_py_path": "/source/",
