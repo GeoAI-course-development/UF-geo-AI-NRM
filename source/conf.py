@@ -52,7 +52,7 @@ extensions = [
 
 thebe_config = {
     "binderOptions": {
-        "repo": "geo-python/UF-geo-AI-NRM/main",  # Make sure this matches your GitHub repo and branch
+        "repo": "GeoAI-course-development/UF-geo-AI-NRM/dev",  # Make sure this matches your GitHub repo and branch
         "binderUrl": "https://mybinder.org",
     },
     "selector": "div.highlight",  # Default for code blocks
