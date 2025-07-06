@@ -1,13 +1,12 @@
 :interactive: true
 
-Here is an interactive snippet: 
+Here is an interactive snippet:
+
 .. code-block:: python
-    :class: thebe-input
-    name = "Thebe"
-    print(f"Hello from {name}!")
+   :class: thebe-input
 
-
-
+   name = "Thebe"
+   print(f"Hello from {name}!")
 
 
 Motivation for the course
