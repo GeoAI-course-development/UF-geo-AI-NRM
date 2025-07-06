@@ -1,5 +1,7 @@
 :interactive: true
 
+.. thebe-button::
+
 Here is an interactive snippet:
 
 .. code-block:: python

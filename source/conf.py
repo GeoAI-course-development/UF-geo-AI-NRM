@@ -50,6 +50,14 @@ extensions = [
     "jupyter_sphinx",
 ]
 
+thebe_config = {
+    "binderOptions": {
+        "repo": "geo-python/UF-geo-AI-NRM/main",  # Make sure this matches your GitHub repo and branch
+        "binderUrl": "https://mybinder.org",
+    },
+    "selector": "div.highlight",  # Default for code blocks
+}
+
 # Google Analytics ID to enable tracking of site traffic
 googleanalytics_id = "UA-105019106-1"
 googleanalytics_enabled = True
