@@ -41,6 +41,7 @@ extensions = [
     "sphinx.ext.mathjax",
     "sphinx.ext.githubpages",
     "sphinx.ext.todo",
+    "sphinx_thebe",
     "sphinxcontrib.googleanalytics",
     "sphinxcontrib.youtube",
     "IPython.sphinxext.ipython_console_highlighting",
@@ -59,8 +60,8 @@ templates_path = ["_templates"]
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
-# source_suffix = ['.rst', '.md']
-source_suffix = ".rst"
+source_suffix = ['.rst', '.md', '.ipynb']
+# source_suffix = ".rst"
 
 # The master toctree document.
 master_doc = "index"
@@ -121,9 +122,10 @@ html_theme_options = {
         "thebe": True,
         "notebook_interface": "jupyterlab",
         "collapse_navigation": False,
+        
     },
 }
-
+thebe_enabled = True
 # Add last modified to all pages
 html_last_updated_fmt = ""
 
