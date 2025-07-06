@@ -3,7 +3,7 @@
 Here is an interactive snippet:
 
 .. code-block:: python
-   :class: thebe-input
+   :class: thebe-code
 
    name = "Thebe"
    print(f"Hello from {name}!")
