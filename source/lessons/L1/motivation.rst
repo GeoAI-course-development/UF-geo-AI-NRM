@@ -1,9 +1,11 @@
+:interactive: true
+
+Here is an interactive snippet: 
 .. code-block:: python
     :class: thebe-input
-
     name = "Thebe"
     print(f"Hello from {name}!")
-:interactive: true
+
 
 
 
