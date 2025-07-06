@@ -50,12 +50,16 @@ extensions = [
     "jupyter_sphinx",
 ]
 
+# Thebe configuration for ReadTheDocs
 thebe_config = {
     "binderOptions": {
-        "repo": "geo-python/UF-geo-AI-NRM/main",  # Make sure this matches your GitHub repo and branch
+        "repo": "geo-python/UF-geo-AI-NRM",
         "binderUrl": "https://mybinder.org",
+        "ref": "dev",
     },
-    "selector": "div.highlight",  # Default for code blocks
+    "selector": ".thebe-code",
+    "repository": "geo-python/UF-geo-AI-NRM",
+    "branch": "dev",
 }
 
 # Google Analytics ID to enable tracking of site traffic
@@ -117,8 +121,8 @@ html_title = ""
 
 html_theme_options = {
     # "external_links": [],
-    "repository_url": "https://github.com/geo-python/site/",
-    "repository_branch": "master",
+    "repository_url": "https://github.com/geo-python/UF-geo-AI-NRM/",
+    "repository_branch": "dev",
     "path_to_docs": "source/",
     # "twitter_url": "https://twitter.com/pythongis",
     # "google_analytics_id": "UA-159257488-1",
@@ -130,8 +134,9 @@ html_theme_options = {
         "thebe": True,
         "notebook_interface": "jupyterlab",
         "collapse_navigation": False,
-        
     },
+    "use_issues_button": True,
+    "use_source_button": True,
 }
 thebe_enabled = True
 # Add last modified to all pages
@@ -162,9 +167,10 @@ html_context = {
     # Set the following variables to generate the resulting github URL for each page.
     # Format Template: https://{{ github_host|default("github.com") }}/{{ github_user }}/{{ github_repo }}/blob/{{ github_version }}{{ conf_py_path }}{{ pagename }}{{ suffix }}
     "github_user": "geo-python",
-    "github_repo": "site",
-    "github_version": "master/",
+    "github_repo": "UF-geo-AI-NRM",
+    "github_version": "dev/",
     "conf_py_path": "/source/",
+    "github_host": "github.com",
 }
 
 # -- Options for HTMLHelp output ---------------------------------------------
@@ -226,3 +232,6 @@ execution_excludepatterns = ['advanced-data-processing-with-pandas.ipynb', 'erro
 
 # Add math config options for new version of MyST
 myst_enable_extensions = ["dollarmath"]
+
+# Additional Thebe configuration for ReadTheDocs
+thebe_enabled = True

@@ -1,0 +1,16 @@
+name: geo-python
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - jupyter
+  - jupyterlab
+  - numpy
+  - matplotlib
+  - pandas
+  - ipykernel
+  - pip
+  - pip:
+    - sphinx-thebe
+    - jupyter-sphinx 

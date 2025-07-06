@@ -8,3 +8,30 @@ div.admonition.admonition-youtube > .admonition-title:after {
   color: #ff0000;
   content: "\f26c"; /* fa-solid fa-tv */
 }
+
+/* Thebe button styling */
+.thebe-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.thebe-button:hover {
+  background-color: #0056b3;
+  color: white;
+  text-decoration: none;
+}
+
+/* Ensure code blocks with thebe-code class are properly styled */
+.thebe-code {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  padding: 15px;
+  margin: 10px 0;
+}
