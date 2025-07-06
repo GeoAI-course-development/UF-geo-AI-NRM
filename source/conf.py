@@ -117,7 +117,8 @@ html_theme_options = {
     "use_repository_button": True,
     "launch_buttons": {
         "binderhub_url": "https://mybinder.org",
-        "thebe": False,
+        "binder_repo": "geo-python/UF-geo-AI-NRM",
+        "thebe": True,
         "notebook_interface": "jupyterlab",
         "collapse_navigation": False,
     },
