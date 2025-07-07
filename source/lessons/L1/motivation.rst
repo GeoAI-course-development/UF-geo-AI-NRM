@@ -1,16 +1,5 @@
 :interactive: true
 
-.. thebe-button::
-
-Here is an interactive snippet:
-
-.. code-block:: python
-   :class: thebe-code
-
-   name = "Thebe"
-   print(f"Hello from {name}!")
-
-
 Motivation for the course
 =========================
 
@@ -22,6 +11,19 @@ These include:
 2. Keeping a log of the changes you make to your programs
 3. Creating programs that ensure your science is reproducible
 4. Producing simple, effective data visualizations that make your results accessible and easy to understand
+
+Interactive Code Example
+-----------------------
+
+Here is an interactive snippet you can try:
+
+.. thebe-button::
+
+.. code-block:: python
+   :class: thebe-code
+
+   name = "Thebe"
+   print(f"Hello from {name}!")
 
 Lesson materials
 ----------------

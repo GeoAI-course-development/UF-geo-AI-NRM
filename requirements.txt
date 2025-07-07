@@ -3,4 +3,5 @@ matplotlib
 imageio
 pandas
 jupyter-offlinenotebook
+sphinx-thebe
 #jupyterlab-git  # Disabling jupyterlab-git for now as it hangs indefinitely

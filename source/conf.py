@@ -83,7 +83,7 @@ master_doc = "index"
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = "en"
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -96,8 +96,8 @@ pygments_style = "sphinx"
 
 # -- Options for HTML output -------------------------------------------------
 
-# The theme to use for HTML and HTML Help pages.  See the documentation for
-# a list of builtin themes.
+# The theme to use for HTML and HTML Help pages.  See the documentation
+# for a list of builtin themes.
 #
 
 # ======================
@@ -138,7 +138,7 @@ html_theme_options = {
     "use_issues_button": True,
     "use_source_button": True,
 }
-thebe_enabled = True
+
 # Add last modified to all pages
 html_last_updated_fmt = ""
 
@@ -233,5 +233,4 @@ execution_excludepatterns = ['advanced-data-processing-with-pandas.ipynb', 'erro
 # Add math config options for new version of MyST
 myst_enable_extensions = ["dollarmath"]
 
-# Additional Thebe configuration for ReadTheDocs
-thebe_enabled = True
+# Thebe is enabled through the theme configuration

@@ -205,3 +205,9 @@ New materials are updated on this course page each Monday.
     course-info/python-vocabulary
     course-info/installing-miniconda
     course-info/resources
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Thebe Test
+
+    thebe-test

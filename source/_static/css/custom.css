@@ -14,16 +14,19 @@ div.admonition.admonition-youtube > .admonition-title:after {
   display: inline-block;
   padding: 8px 16px;
   background-color: #007bff;
-  color: white;
+  color: white !important;
   text-decoration: none;
   border-radius: 4px;
   margin: 10px 0;
   cursor: pointer;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .thebe-button:hover {
   background-color: #0056b3;
-  color: white;
+  color: white !important;
   text-decoration: none;
 }
 
@@ -34,4 +37,22 @@ div.admonition.admonition-youtube > .admonition-title:after {
   border-radius: 4px;
   padding: 15px;
   margin: 10px 0;
+  position: relative;
+}
+
+/* Style for thebe-enabled code blocks */
+.thebe-code.thebe-enabled {
+  border-color: #28a745;
+  background-color: #f8fff9;
+}
+
+/* Ensure proper spacing around thebe elements */
+.thebe-button + .highlight {
+  margin-top: 10px;
+}
+
+/* Make sure thebe elements are visible */
+.thebe-button,
+.thebe-code {
+  display: block !important;
 }
