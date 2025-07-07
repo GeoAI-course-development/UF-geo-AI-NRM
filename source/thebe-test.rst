@@ -6,8 +6,6 @@ This page tests the Thebe interactive functionality.
 Basic Test
 ----------
 
-.. thebe-button::
-
 .. code-block:: python
    :class: thebe-code
 
@@ -15,8 +13,6 @@ Basic Test
 
 Advanced Test
 -------------
-
-.. thebe-button::
 
 .. code-block:: python
    :class: thebe-code

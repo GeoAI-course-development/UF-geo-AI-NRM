@@ -22,12 +22,41 @@ div.admonition.admonition-youtube > .admonition-title:after {
   border: none;
   font-size: 14px;
   font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 .thebe-button:hover {
   background-color: #0056b3;
   color: white !important;
   text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.thebe-button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Loading state for Thebe button */
+.thebe-button.loading {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.thebe-button.loading::after {
+  content: "⏳ Loading...";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Active state for Thebe button */
+.thebe-button.active {
+  background-color: #28a745;
+  box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.3);
 }
 
 /* Ensure code blocks with thebe-code class are properly styled */
@@ -38,12 +67,123 @@ div.admonition.admonition-youtube > .admonition-title:after {
   padding: 15px;
   margin: 10px 0;
   position: relative;
+  transition: all 0.3s ease;
 }
 
 /* Style for thebe-enabled code blocks */
 .thebe-code.thebe-enabled {
   border-color: #28a745;
   background-color: #f8fff9;
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.1);
+}
+
+/* Code block controls */
+.code-controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 6px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  border: 1px solid #e9ecef;
+}
+
+.code-controls button {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.run-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.run-button:hover {
+  background-color: #218838;
+}
+
+.revert-button {
+  background-color: #6c757d;
+  color: white;
+}
+
+.revert-button:hover {
+  background-color: #5a6268;
+}
+
+/* Output styling */
+.code-output {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  white-space: pre-wrap;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.code-output.success {
+  border-color: #28a745;
+  background-color: #f8fff9;
+}
+
+.code-output.error {
+  border-color: #dc3545;
+  background-color: #fff8f8;
+  color: #dc3545;
+}
+
+/* Loading spinner */
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Status indicators */
+.status-indicator {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  margin-left: 8px;
+}
+
+.status-loading {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+}
+
+.status-ready {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.status-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
 }
 
 /* Ensure proper spacing around thebe elements */
@@ -55,4 +195,47 @@ div.admonition.admonition-youtube > .admonition-title:after {
 .thebe-button,
 .thebe-code {
   display: block !important;
+}
+
+/* Enhanced code block styling */
+.thebe-code pre {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.thebe-code .highlight {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+/* Tooltip for buttons */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 12px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }

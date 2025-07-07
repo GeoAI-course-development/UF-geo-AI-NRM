@@ -1,23 +1,8 @@
-:interactive: true
-
-Motivation for the course
-=========================
-
-The main part of the first half of this course is to learn to program in Python.
-However, in addition to learning to program, we hope to help you learn a number of other skills related to open science.
-These include:
-
-1. Writing programs that are easy to understand and share
-2. Keeping a log of the changes you make to your programs
-3. Creating programs that ensure your science is reproducible
-4. Producing simple, effective data visualizations that make your results accessible and easy to understand
 
 Interactive Code Example
 -----------------------
 
 Here is an interactive snippet you can try:
-
-.. thebe-button::
 
 .. code-block:: python
    :class: thebe-code
@@ -25,7 +10,15 @@ Here is an interactive snippet you can try:
    name = "Thebe"
    print(f"Hello from {name}!")
 
-Lesson materials
-----------------
+.. note::
+   The first time you click "Live Code", it may take 30-60 seconds to start the interactive environment. Subsequent code executions will be much faster.
 
-In this lesson we will explore `a motivating example <https://python-gis-book.readthedocs.io/en/latest/part1/chapter-01/nb/00-motivation.html>`_ from the first chapter of the forthcoming textbook `Introduction to Python for Geographic Data Analysis <https://python-gis-book.readthedocs.io/en/latest/index.html>`_.
+.. admonition:: How to Use Live Code
+   :class: tip
+
+   1. **Click "Live Code"** in the top navigation bar
+   2. **Wait for initialization** - you'll see a loading indicator
+   3. **Edit the code** - modify the code in the block above
+   4. **Click "▶️ Run"** to execute your code
+   5. **Click "↩️ Reset"** to restore the original code
+

@@ -41,7 +41,6 @@ extensions = [
     "sphinx.ext.mathjax",
     "sphinx.ext.githubpages",
     "sphinx.ext.todo",
-    "sphinx_thebe",
     "sphinxcontrib.googleanalytics",
     "sphinxcontrib.youtube",
     "IPython.sphinxext.ipython_console_highlighting",
@@ -50,17 +49,7 @@ extensions = [
     "jupyter_sphinx",
 ]
 
-# Thebe configuration for ReadTheDocs
-thebe_config = {
-    "binderOptions": {
-        "repo": "GeoAI-course-development/UF-geo-AI-NRM",
-        "binderUrl": "https://mybinder.org",
-        "ref": "dev",
-    },
-    "selector": ".thebe-code",
-    "repository": "GeoAI-course-development/UF-geo-AI-NRM",
-    "branch": "dev",
-}
+
 
 # Google Analytics ID to enable tracking of site traffic
 googleanalytics_id = "UA-105019106-1"
@@ -149,6 +138,10 @@ html_static_path = ["_static"]
 
 html_css_files = [
     'css/custom.css',
+]
+
+html_js_files = [
+    'js/thebe-enhancements.js',
 ]
 
 # Custom sidebar templates, must be a dictionary that maps document names
