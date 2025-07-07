@@ -1,19 +1,35 @@
+# Core documentation tools
 sphinx
 sphinx-book-theme
 sphinx-thebe
 myst-nb
 myst-parser
 jupyter_sphinx
-ipykernel
-numpy
-matplotlib
-jupyter-book
 pydata-sphinx-theme
+sphinxcontrib-youtube
+
+# Jupyter and notebook execution
+jupyterlab
+notebook
+ipykernel
 ipython
 jupyter_client
-git+https://github.com/jelmer/googleanalytics.git@master
+jupyter-book
+jupyter-offlinenotebook
+
+# Scientific stack
+numpy
+matplotlib
 pandas
 pandas-bokeh
 imageio
+
+# Export and conversion
 nbconvert
-sphinxcontrib-youtube
+
+# Optional extensions
+# jupyterlab-git  # Disabled because it hangs builds
+
+# Google Analytics plugin
+git+https://github.com/jelmer/googleanalytics.git@master
+
