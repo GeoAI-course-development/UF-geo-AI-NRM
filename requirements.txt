@@ -1,5 +1,8 @@
 numpy
 matplotlib
+ipykernel
+jupyterlab
+notebook
 imageio
 pandas
 jupyter-offlinenotebook
