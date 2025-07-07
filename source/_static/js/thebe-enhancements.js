@@ -5,6 +5,14 @@
     // Wait for page to load
     function init() {
         console.log('Thebe enhancements initializing...');
+        if (window.thebelab) {
+            console.log('Calling thebelab.bootstrap()...');
+            thebelab.bootstrap();
+    }   else {
+             console.warn('⚠️ thebelab is not loaded yet.');
+}
+
+        
 
         // Check if we're on a page with Thebe
         const thebeButton = document.querySelector('.thebe-button');
