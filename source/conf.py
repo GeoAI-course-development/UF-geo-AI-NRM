@@ -47,6 +47,8 @@ extensions = [
     "IPython.sphinxext.ipython_directive",
     "myst_nb",
     "jupyter_sphinx",
+    "sphinx_thebe",
+    "myst_parser",
 ]
 
 
@@ -227,3 +229,13 @@ execution_excludepatterns = ['advanced-data-processing-with-pandas.ipynb', 'erro
 myst_enable_extensions = ["dollarmath"]
 
 # Thebe is enabled through the theme configuration
+thebe_config = {
+    "binderOptions": {
+        "repo": "GeoAI-course-development/UF-geo-AI-NRM",
+        "branch": "dev",
+        "binderUrl": "https://mybinder.org",
+    },
+    "codemirrorConfig": {
+        "theme": "abcdef",
+    },
+}
