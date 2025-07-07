@@ -1,13 +1,1 @@
-numpy
-matplotlib
-ipykernel
-jupyterlab
-notebook
-imageio
-pandas
-jupyter-offlinenotebook
-sphinx
-sphinx-thebe
-myst-parser
-sphinx-book-theme
-#jupyterlab-git  # Disabling jupyterlab-git for now as it hangs indefinitely
+
