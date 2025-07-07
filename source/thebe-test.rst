@@ -6,7 +6,7 @@ This page tests the Thebe interactive functionality.
 Basic Test
 ----------
 
-.. code-block:: python
+.. jupyter-execute::
    :class: thebe-code
 
    print("Hello from Thebe!")
@@ -14,7 +14,7 @@ Basic Test
 Advanced Test
 -------------
 
-.. code-block:: python
+.. jupyter-execute::
    :class: thebe-code
 
    import numpy as np
