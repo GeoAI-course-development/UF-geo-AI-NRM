@@ -1,61 +1,75 @@
-// Simplified Enhanced Thebe functionality
+// Simple Thebe enhancements
 (function() {
     'use strict';
 
-    // Track Thebe status
-    let thebeStatus = 'inactive';
-    
-    // Initialize enhanced Thebe functionality
-    function initEnhancedThebe() {
-        // Wait for Thebe to be available
-        if (typeof thebe === 'undefined') {
-            setTimeout(initEnhancedThebe, 100);
-            return;
+    // Wait for page to load
+    function init() {
+        console.log('Thebe enhancements initializing...');
+
+        // Check if we're on a page with Thebe
+        const thebeButton = document.querySelector('.thebe-button');
+        if (!thebeButton) {
+            console.log('No Thebe button found');
+            return; // Not a Thebe page
         }
 
-        // Override thebe initialization to add minimal enhancements
-        const originalInit = thebe.init;
-        thebe.init = function(options) {
-            // Add simple loading state to button
-            const thebeButton = document.querySelector('.thebe-button');
-            if (thebeButton) {
-                thebeButton.classList.add('loading');
-                thebeButton.textContent = 'Starting Live Code...';
-                thebeStatus = 'loading';
+        // Add loading state to button
+        thebeButton.addEventListener('click', function() {
+            thebeButton.textContent = 'Starting Live Code...';
+            thebeButton.classList.add('loading');
+            
+            // Wait a bit then add controls
+            setTimeout(addControls, 2000);
+        });
+
+        // Also try to add controls immediately if code blocks exist
+        setTimeout(function() {
+            const codeBlocks = document.querySelectorAll('.thebe-code');
+            if (codeBlocks.length > 0) {
+                console.log('Found code blocks, adding controls');
+                addControls();
             }
+        }, 1000);
 
-            // Call original init
-            return originalInit.call(this, options).then(function() {
-                thebeStatus = 'ready';
-                
-                // Update button state
-                if (thebeButton) {
-                    thebeButton.classList.remove('loading');
-                    thebeButton.classList.add('active');
-                    thebeButton.textContent = 'Live Code Ready';
-                }
-
-                // Add simple controls
-                addSimpleControls();
-                
-            }).catch(function(error) {
-                console.error('Thebe error:', error);
-                thebeStatus = 'error';
-                
-                if (thebeButton) {
-                    thebeButton.classList.remove('loading');
-                    thebeButton.textContent = 'Live Code Error';
+        // Monitor for Thebe activation
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'childList') {
+                    const codeBlocks = document.querySelectorAll('.thebe-code');
+                    if (codeBlocks.length > 0) {
+                        // Thebe is active, add controls
+                        setTimeout(addControls, 1000);
+                        observer.disconnect();
+                    }
                 }
             });
-        };
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
     }
 
     // Add simple controls to code blocks
-    function addSimpleControls() {
-        const codeBlocks = document.querySelectorAll('.thebe-code');
+    function addControls() {
+        console.log('Adding controls to code blocks...');
         
+        const codeBlocks = document.querySelectorAll('.thebe-code');
+        if (codeBlocks.length === 0) {
+            console.log('No code blocks found');
+            return;
+        }
+
         codeBlocks.forEach(function(block, index) {
-            // Create simple controls container
+            // Check if controls already exist
+            if (block.parentNode.querySelector('.code-controls')) {
+                return;
+            }
+
+            console.log('Adding controls to block', index);
+
+            // Create controls
             const controls = document.createElement('div');
             controls.className = 'code-controls';
             controls.innerHTML = `
@@ -67,13 +81,13 @@
                 </button>
             `;
 
-            // Add simple output container
+            // Create output area
             const output = document.createElement('div');
             output.className = 'code-output';
             output.id = `output-${index}`;
             output.style.display = 'none';
 
-            // Insert controls and output after code block
+            // Insert after the code block
             block.parentNode.insertBefore(controls, block.nextSibling);
             block.parentNode.insertBefore(output, controls.nextSibling);
         });
@@ -84,11 +98,20 @@
 
     // Run code function
     window.runCode = function(index) {
-        const codeBlock = document.querySelectorAll('.thebe-code')[index];
-        const output = document.getElementById(`output-${index}`);
-        const codeElement = codeBlock.querySelector('pre code');
+        console.log('Running code for block', index);
         
-        if (!codeElement || thebeStatus !== 'ready') {
+        const codeBlocks = document.querySelectorAll('.thebe-code');
+        const codeBlock = codeBlocks[index];
+        const output = document.getElementById(`output-${index}`);
+        
+        if (!codeBlock || !output) {
+            console.log('Code block or output not found');
+            return;
+        }
+
+        const codeElement = codeBlock.querySelector('pre code');
+        if (!codeElement) {
+            console.log('Code element not found');
             return;
         }
 
@@ -99,14 +122,15 @@
 
         const code = codeElement.textContent;
         
-        // Show simple loading state
+        // Show loading
         output.style.display = 'block';
         output.className = 'code-output';
         output.textContent = 'Running...';
 
-        // Execute code using Thebe
-        if (thebe && thebe.kernel) {
-            thebe.kernel.execute(code).then(function(result) {
+        // Try to execute with Thebe
+        if (window.thebe && window.thebe.kernel) {
+            console.log('Using Thebe kernel');
+            window.thebe.kernel.execute(code).then(function(result) {
                 if (result.content.status === 'ok') {
                     output.className = 'code-output success';
                     output.textContent = result.content.text || 'Success!';
@@ -119,14 +143,19 @@
                 output.textContent = 'Error: ' + error.message;
             });
         } else {
-            output.className = 'code-output error';
-            output.textContent = 'Kernel not available';
+            console.log('Thebe kernel not available, showing demo output');
+            // Demo output for testing
+            output.className = 'code-output success';
+            output.textContent = 'Demo: Code would execute here in live environment';
         }
     };
 
     // Revert code function
     window.revertCode = function(index) {
-        const codeBlock = document.querySelectorAll('.thebe-code')[index];
+        console.log('Reverting code for block', index);
+        
+        const codeBlocks = document.querySelectorAll('.thebe-code');
+        const codeBlock = codeBlocks[index];
         const codeElement = codeBlock.querySelector('pre code');
         const originalCode = originalCodeContent.get(index);
         const output = document.getElementById(`output-${index}`);
@@ -141,11 +170,26 @@
         }
     };
 
+    // Debug function to manually add controls
+    window.debugAddControls = function() {
+        console.log('Manually adding controls...');
+        addControls();
+    };
+
     // Initialize when DOM is ready
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initEnhancedThebe);
+        document.addEventListener('DOMContentLoaded', init);
     } else {
-        initEnhancedThebe();
+        init();
     }
+
+    // Also try after a longer delay as fallback
+    setTimeout(function() {
+        const codeBlocks = document.querySelectorAll('.thebe-code');
+        if (codeBlocks.length > 0) {
+            console.log('Fallback: Adding controls after delay');
+            addControls();
+        }
+    }, 5000);
 
 })(); 
