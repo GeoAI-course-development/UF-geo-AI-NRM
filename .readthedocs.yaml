@@ -6,4 +6,3 @@ python:
   version: 3.9
   install:
     - requirements: source/rtd_requirements.txt
-
